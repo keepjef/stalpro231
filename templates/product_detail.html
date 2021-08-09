@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name='keywords' content='{{ product.keywords }}'>
+    <meta name="description" content="{{ product.meta_description }}">
+    <title>{{ product.title }}</title>
+    {% include 'main.html' %}
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:description" content="{{ product.meta_description }}">
+    <meta property="og:url" content="{{ request.path }}">
+    <meta property="og:title" content="{{ product.title }}">
+</head>
+<body>
+<header class='blog'>
+            <div class="header header--blog">
+            <div class="header__navbar">
+                <div class="overlay has-fade"></div>
+                <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+                    <a href="/" class="header__logo">
+                    <img src="/static/assets/img/logo.svg" alt="stalpro23" />
+                    </a>
+            
+                    <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </a>
+            
+                    <div class="header__links hide-for-mobile">
+                    <a href="#products" class='scrollto'>Продукция</a>
+                    <a href="#contacts">Контакты</a>
+                    <a href="#examp">Галерея</a>
+                    <a href="#company">О компании</a>
+                    </div>
+                </nav>
+            </div>
+                <div class="header__menu has-fade">
+                    <a href="https://2gis.ru/krasnodar/geo/70030076196441196?m=39.103971%2C45.096462%2F19.07" target="_blank"><div class="header__addr">
+                        Г. краснодар ул  Капитальная 8
+                    </div>
+                </a>
+                
+                <a href="#products" class='scrollto'>Продукции</a>
+                <a href="#contacts">Контакты</a>
+                <a href="#examp">Галерея</a>
+                <a href="#company">О компании</a>
+                </div>
+                    <h2 class="about-back">{{ product.partition }}</h2>
+            </div>
+          </header>
+
+          <section class="detail">
+            <div class="container">
+            <h2>{{ product.name }}</h2>
+            <div class="detail__row">
+              <p class="detail__info">{{ product.description}}</p>
+              <img src="/{{ product.img }}" alt="{{ product }}" class="naves-demo">
+            </div>
+            <div class="btn btn__callback callback-button-form">Обратный звонок</div>
+            {% for i in elem_partitions.benefits %}
+            <div class="benefits">
+             <div class="benefits__text">{{ i.title}}</div>
+             <div class="benefits__par">{{ i.descr }}</div>
+                    
+              <ul class='benefits__list'>
+                  {% for a in i.get_benefit %}
+                <li>{{ a.name }}</li>
+                  {% endfor %}
+              </ul>
+              <div class="benefits__par">Приобрести готовые кованые навесы стандартных размеров или заказать индивидуальный проект по доступным ценам можно, воспользовавшись услугами компании stalpro23.</div>
+                    
+          </div>
+            {% endfor %}
+
+            </div>
+          </section>
+{% include 'footer.html' %}
+{% include "script.html" %}
+</body>
+</html>

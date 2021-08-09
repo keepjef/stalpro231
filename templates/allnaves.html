@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name='keywords' content='{{ element.keywords }}'>
+    <meta name="description" content="{{ element.meta_description }}">
+    <title>{{ element.title }}</title>
+{% include 'main.html' %}
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:description" content="{{ element.meta_description }}">
+    <meta property="og:url" content="https://stalpro23.ru/">
+    <meta property="og:title" content="{{ element.title }}">
+</head>
+<body>
+<header class='blog'>
+            <div class="header header--blog">
+            <div class="header__navbar">
+                <div class="overlay has-fade"></div>
+                <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+                    <a href="/" class="header__logo">
+                    <img src="/static/assets/img/logo.svg" alt="stalpro23" />
+                    </a>
+            
+                    <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </a>
+            
+                    <div class="header__links hide-for-mobile">
+                    <a href="#products" class='scrollto'>Продукция</a>
+                    <a href="#contacts">Контакты</a>
+                    <a href="#examp">Галерея</a>
+                    <a href="#company">О компании</a>
+                    </div>
+                </nav>
+            </div>
+                <div class="header__menu has-fade">
+                    <a href="https://2gis.ru/krasnodar/geo/70030076196441196?m=39.103971%2C45.096462%2F19.07" target="_blank"><div class="header__addr">
+                        Г. краснодар ул  Капитальная 8
+                    </div>
+                </a>
+                <a href="#products" class='scrollto'>Продукции</a>
+                <a href="#contacts">Контакты</a>
+                <a href="#examp">Галерея</a>
+                <a href="#company">О компании</a>
+                </div>
+                    <h2 class="about-back">Доступные цены на железные конструкции</h2>
+            </div>
+          </header>
+        <div class="breadcrumbs">
+            <a href="/">Главная</a>
+            <a href="{{ request.path }}">{{ elements.name }}</a>
+        </div>
+          <section class="list" id='products'>
+              <div class="container">
+              <div class="title">Каталог Навесов</div>
+              <div class="list__cards">
+                  {% for i in fil %}
+                <a class="list__card" href="{{ param1 }}{{ i.slug }}">
+                    <div class="list__card-img"><img src="/{{ i.img }}" alt=""></div>
+                    <div class="list__card-title"><h4>{{ i.name }}</h4></div>
+                    <div class="list__card-par">{{ i.description|slice:'250' }}...</div>
+                    <div href="{{ param1 }}{{ i.slug }}" class="list__btn">от {{ i.price }} за м²</div>
+                </a>
+                  {% endfor %}
+              </div>
+            </div>
+          </section>
+{% include 'footer.html' %}
+{% include "script.html" %}
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include "main.html" %}
+<body>
+<header class='blog'>
+            <div class="header header--blog">
+            <div class="header__navbar">
+                <div class="overlay has-fade"></div>
+                <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+                    <a href="/" class="header__logo">
+                    <img src="../static/assets/img/logo.svg" alt="stalpro23" />
+                    </a>
+            
+                    <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </a>
+            
+                    <div class="header__links hide-for-mobile">
+                    <a href="#products" class='scrollto'>Продукция</a>
+                    <a href="#contacts">Контакты</a>
+                    <a href="#examp">Галерея</a>
+                    <a href="#company">О компании</a>
+                    </div>
+                </nav>
+            </div>
+                <div class="header__menu has-fade">
+                    <a href="https://2gis.ru/krasnodar/geo/70030076196441196?m=39.103971%2C45.096462%2F19.07" target="_blank"><div class="header__addr">
+                        Г. краснодар ул  Капитальная 8
+                    </div>
+                </a>
+                <a href="#products" class='scrollto'>Продукции</a>
+                <a href="#contacts">Контакты</a>
+                <a href="#examp">Галерея</a>
+                <a href="#company">О компании</a>
+                </div>
+                    <h2 class="about-back">Доступные цены на железные конструкции</h2>
+            </div>
+          </header>
+          <section class="products" id='products'>
+              <div class="title">Последние работы</div>
+              <div class="cards">
+                <h1>{{ list_els.name }}</h1>
+                  {% for i in all_naves %}
+                  <div class="card card-large">
+                      <div class="card__img"><img src="../static/assets/img/crovlya.jpg" alt=""></div>
+                      <div class="card__title">{{ i.name }}</div>
+                      <div class="card__some">{{ e.elem_partitions }}</div>
+                      <div class="card__par">{{ i.description }}</div>
+                      <div class="card__price">{{ i.price }}</div>
+                      <div class='card__data'>Дата: {{ i.published }}</div>
+                      <div class="card__time">{{ i.period }}</div>
+                      <a class="card__btn btn callback-button-form">Заказать</a>
+                  </div>
+                  {% endfor %}
+              </div>
+              <div class="arrows">
+                <div class="arrow-left arrow"><img src="../static/assets/img/arrow-left.svg" alt=""></div>
+                <div class="arrow-right arrow"><img src="../static/assets/img/arrow-right.svg" alt=""></div>
+            </div>
+          </section>
+{% include 'script.html' %}
+</body>
+</html>

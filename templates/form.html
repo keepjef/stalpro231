@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include 'main.html' %}
+</head>
+<body>
+                      <div class="form">
+                        <button class="modal__close-button"><img src="/static/assets/img/close.svg" width="20" alt=""></button>
+                        <div class="form__title">Мы свяжемся с вами в течение 24 часов! </div>
+                        <form action="{% url 'home' %}" method="POST" class="form__block">
+                            {% csrf_token %}
+                            <div class="name1">
+                                {{ form.name }}
+                            </div>
+                            <div class="phone1">
+                                {{ form.phone }}
+                            </div>
+                            <div class="address1">
+                            {{ form.addr }}
+                            </div>
+                            <div class="form__check">
+                                <label>
+                                    Я ознакомлен(-а) с <a target="_blank" id="callback-button" href="/privacy.html" >Политикой конфиденциальности</a>
+                                    <input type="checkbox" class="form__checkbox" name="accept" onchange="document.getElementById('mc-embedded-subscribe').disabled = !this.checked" />
+                                </label>
+                                </div>
+                            <button class="btn btn-send" type="submit" id="mc-embedded-subscribe" disabled>Оставить заявку</button>
+                            <input type="hidden" name="act" value="order">
+                        </form>
+
+                      </div>
+</body>
+</html>

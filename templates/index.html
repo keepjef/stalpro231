@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'main.html' %}
+    <meta name="description" content="Навесы из поликарбоната, профнастила, металлочерепицы, мягкой кровли, с элементами ковки по самым низким ценам. Изготовление навесов в Краснодаре по индивидуальным размерам от компании «СтальПро23».">
+    <meta name='keywords' content='навесы, купить поликарбонат, цена на навесы,навесы Краснодарском крае, Разновидности навесов, СтальПро23 отзывы»'>
+    <title>Изготовление навесов, козырьков, пандусов, перил и заборов в Краснодаре - «стальпро23»</title>
+
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:description" content="Навесы из поликарбоната, профнастила, металлочерепицы, мягкой кровли, с элементами ковки по самым низким ценам. Изготовление навесов в Краснодаре по индивидуальным размерам от компании «СтальПро23».">
+    <meta property="og:url" content="https://stalpro23.ru/">
+    <meta property="og:title" content="Изготовление навесов, козырьков, пандусов, перил и заборов в Краснодаре - «стальпро23»">
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="header">
+            <div class="header__navbar">
+                <div class="overlay has-fade"></div>
+                <div class="info__row">
+                    <div class="info__phone info"><a href="tel:+79282150909">+7 (918)-047-71-61</a></div>
+                    <div class="info__phone info"><a href="tel:+79282150909">+7 (928)215-09-09</a></div>
+                    <div class="info__email info"><a href="">stalpro23@gmail.com</a></div>
+                    <div class="info__address info"><a href="https://2gis.ru/krasnodar/geo/70030076196441196?m=39.103971%2C45.096462%2F19.07">Г.Краснодар пос.Индустриальный ул.Капитальная 8</a></div>
+                </div>
+                <nav class="container nav-head container--pall flex flex-jc-sb flex-ai-c">
+                    <a href="/" class="header__logo">
+                    <img src="/static/assets/img/logo.svg" alt="stalpro23" />
+                    </a>
+            
+                    <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </a>
+            
+                    <div class="header__links hide-for-mobile">
+                    <a href="#products" class='scrollto'>Продукция</a>
+                    <a href="#contacts">Контакты</a>
+                    <a href="#examp">Галерея</a>
+                    <a href="#company">О компании</a>
+                    </div>
+                </nav>
+            </div>
+                <div class="header__menu has-fade">
+                    <a href="https://2gis.ru/krasnodar/geo/70030076196441196?m=39.103971%2C45.096462%2F19.07" target="_blank"><div class="header__addr">
+                        Г. краснодар ул  Капитальная 8
+                    </div>
+                </a>
+                <a href="#products" class='scrollto'>Продукция</a>
+                <a href="#contacts">Контакты</a>
+                <a href="#examp">Галерея</a>
+                <a href="#company">О компании</a>
+                </div>
+            <div class="main container">
+                
+                <div class="main__block block1">
+                    <h1 class='main__title'>ИЗГОТОВЛЕНИЕ И МОНТАЖ НАВЕСОВ ЛЮБЫХ РАЗМЕРОВ И КОНСТРУКЦИЙ ПОД КЛЮЧ </h1>
+                    <a class="btn btn--main callback-button-form"><div class="btn-text">Оставить заявку</div></a>
+                </div>
+            </div>
+            </div>
+          </header>
+          <section class="products" id='products'>
+              <div class="title">Каталог продукции</div>
+              <div class="cards">
+                {% for partition in object_list %}
+                    <div class="card">
+                      <div class="card__img"><img src="{{ partition.preview }}" alt="{{ partition.slug }}"></div>
+                      <div class="card__title"><h3>{{ partition.name }}</h3></div>
+                      <div class="card__par">{{ partition.description }}</div>
+                        <div class="card__price">от {{ partition.cost }} за м²</div>
+                      <a href='products/{{ partition.slug }}' class="card__btn btn">Подробнее</a>
+                  </div>
+                {% empty %}
+                    <li>Нет записей</li>
+                {% endfor %}
+              </div>
+              <div class="arrows">
+                <div class="arrow-left arrow"><img src="/static/assets/img/arrow-left.svg" alt=""></div>
+                <div class="arrow-right arrow"><img src="/static/assets/img/arrow-right.svg" alt=""></div>
+            </div>
+          </section>
+          <section class="how" id='how'>
+              <div class="title">Как мы работаем</div>
+              <div class="container">
+              <div class="how__row">
+                  <div class="how__card">
+                      <div class="how__num">01</div>
+                      <div class="how__img"><img src="/static/assets/img/rule.svg" alt=""></div>
+                      <div class="how__title">ЗАМЕР И ОФЕРТА</div>
+                      <div class="how__par">Вызов специалиста для проведения замера, составление рабочей схемы или дизайн проекта, составление сметы, заключение договора.</div>
+                  </div>
+                  <div class="how__card">
+                      <div class="how__num">02</div>
+                      <div class="how__img"><img src="/static/assets/img/svarka.svg" alt=""></div>
+                      <div class="how__title">ИЗГОТОВЛЕНИЕ КОНСТРУКЦИИ</div>
+                      <div class="how__par">Изготовление конструкции на нашей производственной базе согласно согласованной схеме с заказчиком.
+                        От 5 рабочих дней производится конструкция</div>
+                  </div>
+                  </div>
+                  <div class="how__row">
+                  <div class="how__card">
+                      <div class="how__num">03</div>
+                      <div class="how__img"><img src="/static/assets/img/paint.svg" alt=""></div>
+                      <div class="how__title">МОЛОТКОВАЯ КРАСКА</div>
+                      <div class="how__par">Данная краска защищает поверхность металла от воздействие окружающей среды, что предотвращает коррозию и осуществляет долговечность конструкции.</div>
+                  </div>
+                  <div class="how__card">
+                      <div class="how__num">04</div>
+                      <div class="how__img"><img src="/static/assets/img/delivery.svg" alt=""></div>
+                      <div class="how__title">ДОСТАВКА И СБОРКА</div>
+                      <div class="how__par">Доставка  и квалифицированный монтаж. Сдача готовой продукции заказчику. Монтаж осуществляется от 5 рабочих дней</div>
+                  </div>
+              </div>
+            </div>
+          </section>
+          <section class="company" id='company'>
+            <div class="title">О компании</div>
+            <div class="company__row container">
+              <div class="company__block1"><p class="company__par">Наша команда предоставляет услуги по изготовлению козырьков, навесов всех размеров, конструкций и форм на любой вкус.
+Уже более 8 летний опыт в сфере изготовления навесов и более 500 довольных клиентов. Мы предоставляем гарантию 10 лет на все наши конструкции.
+У нас имеется партнерство по закупе металла и поликарбоната, что позволяет нам гарантировать низкие цены.</p></div>
+              <div class="company__block2">
+                <img src="/static/assets/img/company.jpg" alt="" class="compnay__img">
+              </div>
+            </div>
+            <div class="btn btn__callback callback-button-form">Обратный звонок</div>
+          </section>
+        <section class="examp" id='examp'>
+            <div class="title">Галерея</div>
+            <div class="container--grid">
+
+                <div class="grid">
+                    <div class="grid-col grid-col--1">
+        
+                    </div>
+                    <div class="grid-col grid-col--2">
+        
+                    </div>
+                    <div class="grid-col grid-col--3">
+        
+                    </div>
+        
+                    <div class="grid-item">
+                        <div class="content">
+                        </div>
+                        <img src="/static/assets/img/gallery1.jpg" loading="lazy" alt="Навес из поликарбоната">
+                    </div>
+        
+                    <div class="grid-item">
+                        <div class="content">
+                        </div>
+                        <img src="/static/assets/img/gallery3.jpg" loading="lazy" alt="Навес из поликарбоната">
+                    </div>
+        
+                    <div class="grid-item">
+                        <div class="content">
+                        </div>
+                        <img src="/static/assets/img/gallery5.jpg" loading="lazy" alt="Навес из поликарбоната">
+                    </div>
+        
+                    <div class="grid-item">
+                        <div class="content">
+                        </div>
+                        <img src="/static/assets/img/gallery21.jpg" loading="lazy" alt="Навес из поликарбоната">
+                    </div>
+        
+        
+                    <div class="grid-item">
+                        <div class="content">
+                        </div>
+                        <img src="/static/assets/img/gallery4.jpg" loading="lazy" alt="Навес из профнастила">
+                    </div>
+                    <div class="grid-item">
+                        <div class="content">
+                        </div>
+                        <img src="/static/assets/img/gallery61.jpg" loading="lazy" alt="Навес из поликарбоната">
+                    </div>
+        
+                </div>
+            </div>
+        </section>
+        <section class="stripe">
+          <div class="container stripe__cont">
+              <div class="stripe__row">
+                <div class="stripe__block1">
+                  <div class="stripe__title">Для консультации свяжитесь с нашими специалистами</div>
+                    <div class="stripe__garanty">Гарантия 10</div>
+                </div>
+                <div class="stripe__block2"><a href="tel:+79282150909">+7 (928)215-09-09</a></div>
+              </div>
+          </div>
+        </section>
+    <section class="examps" id="examples">
+        <div class="container">
+            <h3>Разновидности конструкций</h3>
+            <div class="examp__block">
+                <div class="examp__text"><h2>Навес из поликарбоната</h2></div>
+                <div class="examp__par">Легкий навес, пропускающий естественный счет. Практичное и недорогое решение для навесов в зоне беседок или парковки машин. Материал имеет небольшой вес, чем не создает большой нагрузки на опоры. Монтаж простой, фундаментальные работы не требуются. Можно выбрать цвет и толщину поликарбоната.</div>
+                <div class="examp__row">
+                    <a href="/static/assets/img/navesi/poli.jpg" class="examp-link" data-lightbox="roadtrip" data-title="Навес из поликарбоната"  data-aos="zoom-in"><img class="examp__img" src="/static/assets/img/navesi/poli.jpg" alt="Навес из поликарбоната"></a>
+                    <a href="/static/assets/img/navesi/poli2.jpg" class="examp-link" data-lightbox="roadtrip" data-title="Навес из поликарбоната" data-aos="zoom-in"><img class="examp__img" src="/static/assets/img/navesi/poli2.jpg" alt="Навес из поликарбоната"></a>
+                    <a href="/static/assets/img/navesi/poli3.jpg" class="examp-link" data-lightbox="roadtrip" data-title="Навес из поликарбоната" data-aos="zoom-in"><img class="examp__img" src="/static/assets/img/navesi/poli3.jpg" alt="Навес из поликарбоната"></a>
+                    <a href="/static/assets/img/navesi/poli4.jpg" class="examp-link" data-lightbox="roadtrip" data-title="Навес из поликарбоната" data-aos="zoom-in"><img class="examp__img" src="/static/assets/img/navesi/poli4.jpg" alt="Навес из поликарбоната"></a>
+                </div>
+            </div>
+            <div class="examp__block">
+                <div class="examp__text"><h2>Навес из профнастила</h2></div>
+                <div class="examp__par">Профнастил - долговечный материал для навеса, который не поддается гниению и не выцветает. Предполагает быстрый и несложный монтаж. Механические воздействия материалу не страшны. Из недостатков - не приглушает шум во время непогоды. Если на территории предусмотрен определенный архитектурный стиль, нужно учитывать - подойдет ли профнастил по внешнему виду. </div>
+                <div class="examp__row">
+                    <a href="/static/assets/img/navesi/profnaf1.jpg" class="examp-link" data-lightbox="roadtrip" data-title="Навес из профнастила"  data-aos="zoom-in"><img src="/static/assets/img/navesi/profnaf1.jpg" class="examp__img" alt="Навес из профнастила"></a>
+                    <a href="/static/assets/img/navesi/profnaf2.jpg" class="examp-link" data-lightbox="roadtrip" data-title="Навес из профнастила"  data-aos="zoom-in"><img src="/static/assets/img/navesi/profnaf2.jpg" class="examp__img" alt="Навес из профнастила"></a>
+                    <a href="/static/assets/img/navesi/profnaf3.jpg" class="examp-link" data-lightbox="roadtrip" data-title="Навес из профнастила"  data-aos="zoom-in"><img src="/static/assets/img/navesi/profnaf3.jpg" class="examp__img" alt="Навес из профнастила"></a>
+                    <a href="/static/assets/img/navesi/profnaf4.jpg" class="examp-link" data-lightbox="roadtrip" data-title="Навес из профнастила"  data-aos="zoom-in"><img src="/static/assets/img/navesi/profnaf4.jpg" class="examp__img" alt="Навес из профнастила"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="frame">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d542.9482166608136!2d39.100629633875116!3d45.096600327747446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f0435d9bf4b555%3A0xcdee9617b3d9860b!2z0JrQsNC_0LjRgtCw0LvRjNC90LDRjyDRg9C7Liwg0JjQvdC00YPRgdGC0YDQuNCw0LvRjNC90YvQuSwg0JrRgNCw0YHQvdC-0LTQsNGA0YHQutC40Lkg0LrRgNCw0LksIDM1MDA1Ng!5e0!3m2!1sru!2sru!4v1623838749079!5m2!1sru!2sru" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+            <div class="modal-win modal">
+                <div class="modal__content">
+                    <div class="modal__wrap">
+                      <div class="form">
+                        <button class="modal__close-button"><img src="/static/assets/img/close.svg" width="20" alt=""></button>
+                        <div class="form__title">Мы свяжемся с вами в течение 24 часов! </div>
+                        <form action="{% url 'home' %}" method="post" class="form__block">
+                            {% csrf_token %}
+                            <div class="name1">
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <h3>{{ form.name.errors }}</h3>
+                                {% endif %}
+                            </div>
+                            <div class="phone1">
+                                {{ form.phone }}
+                                {% if form.phone.errors %}
+                                    <h3>{{ form.phone.errors }}</h3>
+                                {% endif %}
+                            </div>
+                            <div class="address1">
+                            {{ form.addr }}
+                                {% for field in form %}
+                                    {% if field.errors %}
+                                        <h3>{{ field.errors }}</h3>
+                                    {% endif %}
+                                {% endfor %}
+{#                                {% if form.addr.errors %}#}
+{#                                    <h3>{{ form.addr.errors }}</h3>#}
+{#                                {% endif %}#}
+                            </div>
+                            <div class="form__check">
+                                <label>
+                                    Я ознакомлен(-а) с <a target="_blank" id="callback-button" href="/privacy.html" >Политикой конфиденциальности</a>
+                                    <input type="checkbox" class="form__checkbox" name="accept" onchange="document.getElementById('mc-embedded-subscribe').disabled = !this.checked" />
+                                </label>
+                                </div>
+                            <button class="btn btn-send" type="submit" id="mc-embedded-subscribe" disabled>Оставить заявку</button>
+                            <input type="hidden" name="act" value="order">
+                            <h3>{{ form.errors }}</h3>
+                        </form>
+                                    
+                    </div>
+                        </div></a>
+                    </div>
+                </div>
+            </div>
+          <section class="products" id='lastworks'>
+              <div class="title">Последние работы</div>
+              <div class="cards">
+                {% for work in lastworks %}
+                    <div class="card">
+                      <div class="card__img"><img src="{{ work.img }}" alt="{{ partition.slug }}"></div>
+                      <div class="card__title"><h5>{{ work.name }}</h5></div>
+                      <div class="card__par"><h6>{{ work.description|slice:"150" }}</h6></div>
+                        <div class='card__data'>{{ work.published }}</div>
+                      <div class="card__time">Выполненно за: {{ work.period }} дней</div>
+                        <div class="card__price">Цена: {{ work.price }} ₽</div>
+                      <a href='works/{{ work.slug }}' class="card__btn btn">Подробнее</a>
+                  </div>
+                {% empty %}
+                    <li>Нет записей</li>
+                {% endfor %}
+              </div>
+              <div class="arrows">
+                <div class="arrow-left arrow"><img src="/static/assets/img/arrow-left.svg" alt=""></div>
+                <div class="arrow-right arrow"><img src="/static/assets/img/arrow-right.svg" alt=""></div>
+            </div>
+          </section>
+{% include 'footer.html' %}
+
+{% include "script.html" %}
+</body>
+</html>

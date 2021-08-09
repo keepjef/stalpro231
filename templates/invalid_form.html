@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'main.html' %}
+</head>
+<body style="background-color: #fff;"><header class='blog'>
+            <div class="header header--blog">
+            <div class="header__navbar">
+                <div class="overlay has-fade"></div>
+                <nav class="container container--pall flex flex-jc-sb flex-ai-c">
+                    <a href="/" class="header__logo">
+                    <img src="/static/assets/img/logo.svg" alt="stalpro23" />
+                    </a>
+
+                    <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </a>
+
+                    <div class="header__links hide-for-mobile">
+                    <a href="#products" class='scrollto'>Продукция</a>
+                    <a href="#contacts">Контакты</a>
+                    <a href="#examp">Галерея</a>
+                    <a href="#company">О компании</a>
+                    </div>
+                </nav>
+            </div>
+                <div class="header__menu has-fade">
+                    <a href="https://2gis.ru/krasnodar/geo/70030076196441196?m=39.103971%2C45.096462%2F19.07" target="_blank"><div class="header__addr">
+                        Г. краснодар ул  Капитальная 8
+                    </div>
+                </a>
+                <a href="#products" class='scrollto'>Продукции</a>
+                <a href="#contacts">Контакты</a>
+                <a href="#examp">Галерея</a>
+                <a href="#company">О компании</a>
+                </div>
+                    <h2 class="about-back">Ошибка заполнения формы. Исправьте пожалуйста</h2>
+            </div>
+          </header>
+                      <div class="form">
+                        <button class="modal__close-button"><img src="/static/assets/img/close.svg" width="20" alt=""></button>
+                        <div class="form__title">Мы свяжемся с вами в течение 24 часов! </div>
+                        <form action="{% url 'home' %}" method="post" class="form__block">
+                            {% csrf_token %}
+                            <div class="name1">
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <strong>{{ form.name.errors }}</strong>
+                                {% endif %}
+                            </div>
+                            <div class="phone1">
+                                {{ form.phone }}
+                                {% if form.phone.errors %}
+                                    <strong>{{ form.phone.errors }}</strong>
+                                {% endif %}
+                            </div>
+                            <div class="address1">
+                            {{ form.addr }}
+                                {% if form.addr.errors %}
+                                    <strong>{{ form.addr.errors }}</strong>
+                                {% endif %}
+                            </div>
+                            <div class="form__check">
+                                <label>
+                                    Я ознакомлен(-а) с <a target="_blank" id="callback-button" href="/privacy.html" >Политикой конфиденциальности</a>
+                                    <input type="checkbox" class="form__checkbox" name="accept" onchange="document.getElementById('mc-embedded-subscribe').disabled = !this.checked" />
+                                </label>
+                                </div>
+                            <button class="btn btn-send" type="submit" id="mc-embedded-subscribe" disabled>Оставить заявку</button>
+                            <input type="hidden" name="act" value="order">
+                        </form>
+
+                    </div>
+</body>
+
+{% include 'script.html' %}
+</html>

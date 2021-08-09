@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>{{ list_els }}</h1>
+{% for e in all_naves %}
+    <ul>
+    <h2>{{ e.name }}</h2>
+        <li> {{ e.elem_partitions }}</li>
+    <li>{{ e.description }}</li>
+    <li>{{ e.price }}</li>
+    <li>{{ e.area }}</li>
+    <li>{{ e.period }}</li>
+    <li>{{ e.first_name }}</li>
+    </ul>
+{% endfor %}
+
+</body>
+</html>
