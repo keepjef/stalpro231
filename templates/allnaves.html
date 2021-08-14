@@ -28,10 +28,10 @@
                     </a>
             
                     <div class="header__links hide-for-mobile">
-                    <a href="#products" class='scrollto'>Продукция</a>
+                    <a href="/" class='scrollto'>Главная</a>
                     <a href="#contacts">Контакты</a>
-                    <a href="#examp">Галерея</a>
-                    <a href="#company">О компании</a>
+                    <a href="{% url 'products' %}">Продукция</a>
+                    <a href="/">О компании</a>
                     </div>
                 </nav>
             </div>
@@ -40,29 +40,30 @@
                         Г. краснодар ул  Капитальная 8
                     </div>
                 </a>
-                <a href="#products" class='scrollto'>Продукции</a>
+                <a href="{% url 'products' %}" class='scrollto'>Продукция</a>
                 <a href="#contacts">Контакты</a>
-                <a href="#examp">Галерея</a>
-                <a href="#company">О компании</a>
+                <a href="/">Галерея</a>
+                <a href="/">О компании</a>
                 </div>
                     <h2 class="about-back">Доступные цены на железные конструкции</h2>
             </div>
           </header>
-        <div class="breadcrumbs">
+          <div class="breads">
+          <div class="breadcrumbs">
             <a href="/">Главная</a>
-            <a href="{{ request.path }}">{{ elements.name }}</a>
-        </div>
+            <a class="bread" href="{{ request.path }}">{{ elements.name }}</a>
+          </div></div>
           <section class="list" id='products'>
               <div class="container">
               <div class="title">Каталог Навесов</div>
               <div class="list__cards">
                   {% for i in fil %}
-                <a class="list__card" href="{{ param1 }}{{ i.slug }}">
+                <div class="list__card" href="{{ param1 }}{{ i.slug }}">
                     <div class="list__card-img"><img src="/{{ i.img }}" alt=""></div>
                     <div class="list__card-title"><h4>{{ i.name }}</h4></div>
                     <div class="list__card-par">{{ i.description|slice:'250' }}...</div>
-                    <div href="{{ param1 }}{{ i.slug }}" class="list__btn">от {{ i.price }} за м²</div>
-                </a>
+                    <a href="{{ param1 }}{{ i.slug }}" class="list__btn">от {{ i.price }} за м²</a>
+                </div>
                   {% endfor %}
               </div>
             </div>

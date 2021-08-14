@@ -1372,7 +1372,7 @@ header.blog {
 
 .benefits__par {
     max-width: 800px;
-    margin: 20px 0;
+    margin: 20px 0 0;
 }
 
 .benefits__list {
@@ -1391,6 +1391,89 @@ header.blog {
 
     .naves-demo {
         margin-left: 0;
+    }
+}
+
+.breadcrumbs {
+    display: inline-block;
+    counter-reset: flag;
+    color: black;
+    margin: 10px 0;
+    -webkit-box-shadow: 0 0 2px #aaa;
+    box-shadow: 0 0 2px #aaa;
+}
+
+.breadcrumbs a {
+    position: relative;
+    float: left;
+    padding-left: 60px;
+    padding-right: 10px;
+    text-decoration: none;
+    line-height: 36px;
+    color: black;
+    background: white;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.breadcrumbs a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -18px;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    background: white;
+    -webkit-box-shadow: 1px 1px 0 1px #ddd;
+    box-shadow: 1px 1px 0 1px #ddd;
+    border-radius: 50px 0 0 0;
+    -webkit-transform: rotate(-45deg) scale(0.73);
+    -ms-transform: rotate(-45deg) scale(0.73);
+    transform: rotate(-45deg) scale(0.73);
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:hover::after,
+.breadcrumbs a.bread,
+.breadcrumbs a.bread::after {
+    background: #f1c40f;
+}
+
+.breadcrumbs a::before {
+    content: counter(flag);
+    counter-increment: flag;
+    position: absolute;
+    padding-left: 5px;
+    top: 8px;
+    left: 30px;
+    line-height: 20px;
+    -webkit-box-shadow: 0 0 2px #ccc;
+    box-shadow: 0 0 2px #ccc;
+    width: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.breadcrumbs a:first-child {
+    padding-left: 46px;
+}
+
+.breadcrumbs a:first-child::before {
+    left: 14px;
+}
+
+.breads {
+    background-color: #fff;
+}
+
+@media (max-width: 397px) {
+    .breadcrumbs {
+        max-width: 360px;
     }
 }
 
@@ -1579,6 +1662,11 @@ header.blog {
         -webkit-transform: scale(1.7, 1.7);
         transform: scale(1.7, 1.7);
     }
+}
+
+a.list__card {
+    text-decoration: none;
+    color: #000;
 }
 
 .list__cards {

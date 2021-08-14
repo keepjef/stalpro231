@@ -275,7 +275,7 @@
                       <div class="card__img"><img src="{{ work.img }}" alt="{{ partition.slug }}"></div>
                       <div class="card__title"><h5>{{ work.name }}</h5></div>
                       <div class="card__par"><h6>{{ work.description|slice:"150" }}</h6></div>
-                        <div class='card__data'>{{ work.published }}</div>
+                        <div class='card__data'>{{ work.published|date:"Y/d/m" }}</div>
                       <div class="card__time">Выполненно за: {{ work.period }} дней</div>
                         <div class="card__price">Цена: {{ work.price }} ₽</div>
                       <a href='works/{{ work.slug }}' class="card__btn btn">Подробнее</a>

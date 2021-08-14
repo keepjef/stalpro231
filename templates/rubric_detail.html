@@ -27,10 +27,10 @@
                     </a>
             
                     <div class="header__links hide-for-mobile">
-                    <a href="#products" class='scrollto'>Продукция</a>
+                    <a href="{% url 'products' %}" class='scrollto'>Продукция</a>
                     <a href="#contacts">Контакты</a>
-                    <a href="#examp">Галерея</a>
-                    <a href="#company">О компании</a>
+                    <a href="/">Галерея</a>
+                    <a href="/">О компании</a>
                     </div>
                 </nav>
             </div>
@@ -40,18 +40,20 @@
                     </div>
                 </a>
                 
-                <a href="#products" class='scrollto'>Продукции</a>
+                <a href="{% url 'products' %}" class='scrollto'>Продукция</a>
                 <a href="#contacts">Контакты</a>
-                <a href="#examp">Галерея</a>
-                <a href="#company">О компании</a>
+                <a href="/">Галерея</a>
+                <a href="/">О компании</a>
                 </div>
                     <h2 class="about-back">{{ element.partition }}</h2>
             </div>
           </header>
+        <div class="breads">
         <div class="breadcrumbs">
             <a href="/">Главная</a>
             <a href="{% url 'list_elements' element.partition.slug  %}">{{ element.partition.name }}</a>
-            <a href="{{ request.path }}">{{ element.name }}</a>
+            <a href="{{ request.path }}" class="bread">{{ element.name }}</a>
+        </div>
         </div>
 
           <section class="detail">

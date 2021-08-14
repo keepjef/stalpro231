@@ -13,7 +13,7 @@ from blog.tlgrm import send_message
 #     model = Partition
 #     template_name = 'index.html'
 
-# form = FeedBackForm()
+form = FeedBackForm()
 
 def form_post(self, request):
     form = FeedBackForm(request.POST)
@@ -79,17 +79,49 @@ class HomeView(View):
 
 
 class ProductView(View):
-    def post(self, request):
-        form_post(self, request)
 
-    def get(self, request, slug):
-        product = Product.objects.get(slug=slug)
+    def post(self, request):
+        form = FeedBackForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone']
+            addr = form.cleaned_data['addr']
+            text = f'Телефон: {phone}\n Имя: {name}\n Адрес: {addr}'
+            try:
+                send_message(text)
+            except BadHeaderError:
+                return render(request, 'invalid_form.html', context={'form': form})
+            return redirect('/')
+
+    def get(self, request, slug2):
+        product = Product.objects.get(slug=slug2)
         return render(request, 'product_detail.html', {'form': form, 'product': product})
 
 
-class FormView(View):
-    def post(self, request):
-        form_post(self, request)
+class ProductsView(View):
 
     def get(self, request):
-        return render(request, 'index.html', {'form': form})
+        object_list = Partition.objects.all()
+        lastworks = Product.objects.all()[:6]
+        form = FeedBackForm()
+        context = {
+            'object_list': object_list, 'lastworks': lastworks, 'form': form
+        }
+        return render(request, 'products.html', context)
+
+# class FormView(View):
+#     def post(self, request):
+#         form = FeedBackForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['name']
+#             phone = form.cleaned_data['phone']
+#             addr = form.cleaned_data['addr']
+#             text = f'Телефон: {phone}\n Имя: {name}\n Адрес: {addr}'
+#             try:
+#                 send_message(text)
+#             except BadHeaderError:
+#                 return render(request, 'invalid_form.html', context={'form': form})
+#             return redirect('/')
+#
+#     def get(self, request):
+#         return render(request, 'index.html', {'form': form})

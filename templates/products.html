@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 {% include 'main.html' %}
-    <title>Не найдено</title>
+    <title>Title</title>
 </head>
 <body>
 <header class='blog'>
@@ -42,5 +42,31 @@
                     <h2 class="about-back">Доступные цены на железные конструкции</h2>
             </div>
 </header>
+<div class="breads">
+          <div class="breadcrumbs">
+            <a href="/">Главная</a>
+            <a class="bread" href="{{ request.path }}">Продукция</a></div></div>
+<section class="products" id='products'>
+              <div class="title">Каталог продукции</div>
+              <div class="cards">
+                {% for partition in object_list %}
+                    <div class="card">
+                      <div class="card__img"><img src="/{{ partition.preview }}" alt="{{ partition.slug }}"></div>
+                      <div class="card__title"><h3>{{ partition.name }}</h3></div>
+                      <div class="card__par">{{ partition.description }}</div>
+                        <div class="card__price">от {{ partition.cost }} за м²</div>
+                      <a href='products/{{ partition.slug }}' class="card__btn btn">Подробнее</a>
+                  </div>
+                {% empty %}
+                    <li>Нет записей</li>
+                {% endfor %}
+              </div>
+              <div class="arrows">
+                <div class="arrow-left arrow"><img src="/static/assets/img/arrow-left.svg" alt=""></div>
+                <div class="arrow-right arrow"><img src="/static/assets/img/arrow-right.svg" alt=""></div>
+            </div>
+</section>
+{% include 'footer.html' %}
 {% include 'script.html' %}
 </body>
+</html>
