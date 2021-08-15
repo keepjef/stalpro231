@@ -1,5 +1,8 @@
-from django.urls import path, re_path
+from django.urls import path
 from .views import *
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+import static
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),

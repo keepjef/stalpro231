@@ -79,23 +79,13 @@ WSGI_APPLICATION = 'stalpro23.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'staldb',
-        'USER': 'staldb',
-        'PASSWORD': 'FFFsaga2004',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
-
-RECIPIENTS_EMAIL = ['keepjef@gmail.com']   # замените на свою почту
-DEFAULT_FROM_EMAIL = 'keepjef@gmail.com'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'keepjef@gmail.com'
-# ваш уникальный апи-ключ с сайта sendgrid
-EMAIL_HOST_PASSWORD = 'FFFsaga2003'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -127,21 +117,27 @@ USE_L10N = True
 
 USE_TZ = True
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_FOLDER = os.path.abspath(os.path.dirname(__file__))
+MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(PROJECT_FOLDER, "static")
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
+STATICFILES_DIRS = (
+
+    os.path.join(PROJECT_ROOT, 'static', 'assets'),
+
+)
 
 STATICFILES_FINDERS = (
+
     'django.contrib.staticfiles.finders.FileSystemFinder',
+
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+
 )
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
